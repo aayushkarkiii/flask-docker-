@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    image: flask-docker-app:latest
+    ports:
+      - "5000:5000"
+    environment:
+      APP_ENV: production
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
